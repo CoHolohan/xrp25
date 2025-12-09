@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dm5ix1cahm6ks"]
+[gd_scene load_steps=7 format=3 uid="uid://dm5ix1cahm6ks"]
 
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_dme2t"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="2_2fvq1"]
+[ext_resource type="ArrayMesh" uid="uid://b2escypqmbdsx" path="res://Models/katana.obj" id="3_hpbhu"]
 
 [sub_resource type="GDScript" id="GDScript_2fvq1"]
 script/source = "extends Area3D
@@ -47,6 +48,8 @@ tracker = &"right_hand"
 script = SubResource("GDScript_2fvq1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RightHand/RightHand/Katana"]
+transform = Transform3D(0.005, 0, 0, 0, -2.1855694e-10, -0.005, 0, 0.005, -2.1855694e-10, 0, 0, -0.14885077)
+mesh = ExtResource("3_hpbhu")
 
 [node name="Area3D" type="Area3D" parent="RightHand/RightHand/Katana"]
 script = SubResource("GDScript_hpbhu")
