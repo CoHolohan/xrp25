@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://dm5ix1cahm6ks"]
+
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_dme2t"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="2_2fvq1"]
+
+[sub_resource type="GDScript" id="GDScript_2fvq1"]
+script/source = "extends Area3D
+"
+
+[sub_resource type="GDScript" id="GDScript_hpbhu"]
+script/source = "extends Area3D
+# Katana.gd
+
+@export var cut_force: float = 6.0
+
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+
+
+func _on_body_entered(body: Node) -> void:
+	# Only slice things in the \"fruit\" group
+	if not body.is_in_group(\"fruit\"):
+		return
+
+	if body.has_method(\"slice\"):
+		# Pass the katana's transform, so the fruit know the cut direction
+		body.slice(global_transform)
+"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2fvq1"]
+
+[node name="XROrigin3D" type="XROrigin3D"]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+
+[node name="LeftHand" type="XRController3D" parent="."]
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="LeftHand" instance=ExtResource("1_dme2t")]
+
+[node name="RightHand" type="XRController3D" parent="."]
+tracker = &"right_hand"
+
+[node name="RightHand" parent="RightHand" instance=ExtResource("2_2fvq1")]
+
+[node name="Katana" type="Node3D" parent="RightHand/RightHand"]
+script = SubResource("GDScript_2fvq1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RightHand/RightHand/Katana"]
+
+[node name="Area3D" type="Area3D" parent="RightHand/RightHand/Katana"]
+script = SubResource("GDScript_hpbhu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightHand/RightHand/Katana/Area3D"]
+transform = Transform3D(0.03, 0, 0, 0, 0.18, 0, 0, 0, 0.03, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_2fvq1")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvp72lot60wed"]
+
+[ext_resource type="Script" uid="uid://b6y1qsqi0it4c" path="res://vegspawner.gd" id="1_ac18p"]
+
+[node name="vegspawner" type="Node3D"]
+script = ExtResource("1_ac18p")
