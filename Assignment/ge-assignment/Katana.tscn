@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgbd5kpvm055k"]
+
+[ext_resource type="Script" uid="uid://bsi6li15vfi1b" path="res://katana.gd" id="1_gly25"]
+[ext_resource type="ArrayMesh" uid="uid://b2escypqmbdsx" path="res://Models/katana.obj" id="1_pgitu"]
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="2_gly25"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ke5hk"]
+height = 2.5216064
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_blwok"]
+size = Vector3(0.3010254, 5.4401855, 0.16418457)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+script = ExtResource("1_gly25")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4718628, 0.33193967)
+shape = SubResource("CapsuleShape3D_ke5hk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0, 0, 0)
+mesh = ExtResource("1_pgitu")
+
+[node name="BladeArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BladeArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002319336, 3.3761573, 0.3933137)
+shape = SubResource("BoxShape3D_blwok")
+
+[node name="PickableObject" parent="." instance=ExtResource("2_gly25")]
