@@ -1,42 +1,47 @@
 # VegetableSpawner.gd
 extends Node3D
 
-@export var vegetable_scene: Vegetable
-@export var spawn_interval: float = 1.0
+@export var vegetable_scene: PackedScene
+@export var spawn_every: float = 1.0
+@export var spawn_height: float = 2.0
 @export var spawn_radius: float = 1.5
-@export var spawn_height: float = 1.5
-@export var launch_force: float = 10.0
+@export var launch_speed: float = 6.0
 
-@onready var spawn_timer: Timer = $SpawnTimer
+var _time_accum: float = 0.0
 
-func _ready() -> void:
-	spawn_timer.wait_time = spawn_interval
-	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
-	spawn_timer.start()
+func _process(delta: float) -> void:
+	_time_accum += delta
+	if _time_accum >= spawn_every:
+		_time_accum = 0.0
+		_spawn_vegetable()
 
-func _on_spawn_timer_timeout() -> void:
+func _spawn_vegetable() -> void:
 	if vegetable_scene == null:
-		push_warning("VegetableSpawner: vegetable_scene is not assigned!")
+		push_warning("VegetableSpawner: assign vegetable_scene in the Inspector")
 		return
 
-	var veg: Vegetable = vegetable_scene.instantiate() as Vegetable
+	var veg = vegetable_scene.instantiate()
 	if veg == null:
-		push_warning("VegetableSpawner: scene is not a Vegetable")
+		push_warning("VegetableSpawner: vegetable_scene is invalid")
 		return
 
-	# Random X/Z around spawner, at a height
+	# Random position around the spawner, above it
 	var rand_x = randf_range(-spawn_radius, spawn_radius)
 	var rand_z = randf_range(-spawn_radius, spawn_radius)
 
 	var spawn_pos = global_transform.origin + Vector3(rand_x, spawn_height, rand_z)
 	veg.global_transform.origin = spawn_pos
 
-	# Give it an upward launch (like Fruit Ninja)
-	var impulse = Vector3(
-		randf_range(-1.0, 1.0),
-		1.0,
-		randf_range(-1.0, 1.0)
-	).normalized() * launch_force
+	# Add veggie to the same scene as the spawner
+	get_tree().current_scene.add_child(veg)
 
-	add_child(veg)
-	veg.apply_impulse(impulse)
+	# Launch upwards a bit (Godot 4 style)
+	if veg is RigidBody3D:
+		var dir = Vector3(
+			randf_range(-0.5, 0.5),
+			1.0,
+			randf_range(-0.5, 0.5)
+		).normalized()
+		veg.linear_velocity = dir * launch_speed
+
+	print("Spawned veg at: ", spawn_pos)
