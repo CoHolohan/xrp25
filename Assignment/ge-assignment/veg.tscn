@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0pr50dqydv21"]
+[gd_scene load_steps=4 format=3 uid="uid://c0pr50dqydv21"]
 
 [sub_resource type="GDScript" id="GDScript_qiill"]
 script/source = "# veg.gd
@@ -42,9 +42,15 @@ func slice(sword_transform: Transform3D) -> void:
 	half_b.add_to_group(\"veghalf\")
 "
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_qiill"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uftm8"]
+
 [node name="Veg" type="RigidBody3D"]
 script = SubResource("GDScript_qiill")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_qiill")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_uftm8")
