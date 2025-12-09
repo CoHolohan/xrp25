@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv3byc14pcsiy"]
+
+[ext_resource type="Script" uid="uid://p7ylr8gf5bla" path="res://VegetableSpawner.gd" id="1_4rpys"]
+
+[node name="VegetableSpawner" type="Node3D"]
+script = ExtResource("1_4rpys")
+
+[node name="Timer" type="Timer" parent="."]

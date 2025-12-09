@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5w3sj0og1cbx"]
+[gd_scene load_steps=12 format=3 uid="uid://c5w3sj0og1cbx"]
 
 [ext_resource type="Script" uid="uid://twv6wnxt7i24" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dm5ix1cahm6ks" path="res://XrOrigin.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c8bmqx42w10db" path="res://bowl.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://d0utksyb6dvbq" path="res://Vegetable.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dv3byc14pcsiy" path="res://VegetableSpawner.tscn" id="6_272bh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -47,3 +49,7 @@ mesh = SubResource("BoxMesh_lquwl")
 [node name="StartXR" parent="." instance=ExtResource("3_h2yge")]
 
 [node name="Bowl" parent="." instance=ExtResource("4_1bvp3")]
+
+[node name="Vegetable" parent="." instance=ExtResource("5_7mycd")]
+
+[node name="VegetableSpawner" parent="." instance=ExtResource("6_272bh")]

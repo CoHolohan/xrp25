@@ -1,5 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm5ix1cahm6ks"]
+[gd_scene load_steps=5 format=3 uid="uid://dm5ix1cahm6ks"]
 
+[ext_resource type="Script" uid="uid://xfyd4t5l237r" path="res://blade_l.gd" id="1_hpbhu"]
+[ext_resource type="Script" uid="uid://bgfim8170pg38" path="res://blade_r.gd" id="3_becju"]
 [ext_resource type="ArrayMesh" uid="uid://b2escypqmbdsx" path="res://Models/katana.obj" id="3_hpbhu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dme2t"]
@@ -13,6 +15,7 @@ size = Vector3(0.045654297, 1.1905518, 0.0724411)
 tracker = &"left_hand"
 
 [node name="BladeL" type="Area3D" parent="LeftHand"]
+script = ExtResource("1_hpbhu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="LeftHand/BladeL"]
 transform = Transform3D(-2.6226832e-10, 0.006, 0, 2.6226832e-10, 1.1464113e-17, -0.006, -0.006, -2.6226832e-10, -2.6226832e-10, 0, 0, 0)
@@ -27,6 +30,7 @@ shape = SubResource("BoxShape3D_dme2t")
 tracker = &"right_hand"
 
 [node name="BladeR" type="Area3D" parent="RightHand"]
+script = ExtResource("3_becju")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RightHand/BladeR"]
 transform = Transform3D(-2.6226832e-10, 0.006, 0, 2.6226832e-10, 1.1464113e-17, -0.006, -0.006, -2.6226832e-10, -2.6226832e-10, 0, 0, 0)
