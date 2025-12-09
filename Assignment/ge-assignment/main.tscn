@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5w3sj0og1cbx"]
+[gd_scene load_steps=10 format=3 uid="uid://c5w3sj0og1cbx"]
 
 [ext_resource type="Script" uid="uid://twv6wnxt7i24" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dm5ix1cahm6ks" path="res://XrOrigin.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c8bmqx42w10db" path="res://bowl.tscn" id="4_1bvp3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -21,7 +22,7 @@ glow_enabled = true
 size = Vector3(5, 0.1, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
-size = Vector3(5, 0.1, 5)
+size = Vector3(10, 0.1, 10)
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_0xm2m")
@@ -44,3 +45,5 @@ mesh = SubResource("BoxMesh_lquwl")
 [node name="XROrigin3D" parent="." instance=ExtResource("2_h2yge")]
 
 [node name="StartXR" parent="." instance=ExtResource("3_h2yge")]
+
+[node name="Bowl" parent="." instance=ExtResource("4_1bvp3")]

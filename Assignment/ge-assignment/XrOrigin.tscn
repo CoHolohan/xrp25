@@ -3,7 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b2escypqmbdsx" path="res://Models/katana.obj" id="3_hpbhu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dme2t"]
-size = Vector3(0.045654297, 0.55200195, 0.04698181)
+size = Vector3(0.045654297, 1.1905518, 0.0724411)
 
 [node name="XROrigin3D" type="XROrigin3D"]
 
@@ -15,12 +15,12 @@ tracker = &"left_hand"
 [node name="BladeL" type="Area3D" parent="LeftHand"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="LeftHand/BladeL"]
-transform = Transform3D(-2.1855694e-10, 0.005, -2.1855694e-10, 0, -2.1855694e-10, -0.005, -0.005, -2.1855694e-10, 9.553427e-18, 0, 0, 0)
+transform = Transform3D(-2.6226832e-10, 0.006, 0, 2.6226832e-10, 1.1464113e-17, -0.006, -0.006, -2.6226832e-10, -2.6226832e-10, 0, 0, 0)
 mesh = ExtResource("3_hpbhu")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LeftHand/BladeL"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.038208008, 0.34193587, -0.002895385)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07891905, 0.6612108, 0.00983426)
 shape = SubResource("BoxShape3D_dme2t")
 
 [node name="RightHand" type="XRController3D" parent="."]
@@ -29,10 +29,10 @@ tracker = &"right_hand"
 [node name="BladeR" type="Area3D" parent="RightHand"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RightHand/BladeR"]
-transform = Transform3D(-2.1855694e-10, 0.005, -2.1855694e-10, 0, -2.1855694e-10, -0.005, -0.005, -2.1855694e-10, 9.553427e-18, 0, 0, 0)
+transform = Transform3D(-2.6226832e-10, 0.006, 0, 2.6226832e-10, 1.1464113e-17, -0.006, -0.006, -2.6226832e-10, -2.6226832e-10, 0, 0, 0)
 mesh = ExtResource("3_hpbhu")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RightHand/BladeR"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.038208008, 0.34193587, -0.002895385)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07891905, 0.6612108, 0.00983426)
 shape = SubResource("BoxShape3D_dme2t")
