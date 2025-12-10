@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://dv3byc14pcsiy"]
 
-[ext_resource type="Script" uid="uid://p7ylr8gf5bla" path="res://VegetableSpawner.gd" id="1_4rpys"]
+[ext_resource type="Script" uid="uid://bxq452vgr4wls" path="res://vegetable_spawner.gd" id="1_4rpys"]
 [ext_resource type="PackedScene" uid="uid://d0utksyb6dvbq" path="res://Vegetable.tscn" id="2_ffe8m"]
 
-[node name="VegetableSpawner" type="Node3D"]
+[node name="vegSpawner" type="Node3D"]
 script = ExtResource("1_4rpys")
 vegetable_scene = ExtResource("2_ffe8m")
 

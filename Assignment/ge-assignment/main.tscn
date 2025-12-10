@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://c5w3sj0og1cbx"]
+[gd_scene load_steps=13 format=3 uid="uid://c5w3sj0og1cbx"]
 
 [ext_resource type="Script" uid="uid://twv6wnxt7i24" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://cgwj4s2rd2qnm" path="res://floor.gd" id="2_272bh"]
 [ext_resource type="PackedScene" uid="uid://dm5ix1cahm6ks" path="res://XrOrigin.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c8bmqx42w10db" path="res://bowl.tscn" id="4_1bvp3"]
@@ -21,7 +22,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
-size = Vector3(5, 0.1, 5)
+size = Vector3(9.876465, 0.1, 9.866699)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
 size = Vector3(10, 0.1, 10)
@@ -35,14 +36,17 @@ environment = SubResource("Environment_1bvp3")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 
-[node name="Floor" type="StaticBody3D" parent="."]
+[node name="Floor" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+script = ExtResource("2_272bh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013916016, 0, 0.0056152344)
 shape = SubResource("BoxShape3D_1bvp3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("BoxMesh_lquwl")
+skeleton = NodePath("../CollisionShape3D")
 
 [node name="XROrigin3D" parent="." instance=ExtResource("2_h2yge")]
 
@@ -50,6 +54,10 @@ mesh = SubResource("BoxMesh_lquwl")
 
 [node name="Bowl" parent="." instance=ExtResource("4_1bvp3")]
 
-[node name="Vegetable" parent="." instance=ExtResource("5_7mycd")]
+[node name="BowlSpawnPoint" type="Marker3D" parent="Bowl"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0061455, 0.5127518, 1.0297562)
 
-[node name="VegetableSpawner" parent="." instance=ExtResource("6_272bh")]
+[node name="Vegetable_potato" parent="." instance=ExtResource("5_7mycd")]
+
+[node name="VegetableSpawner" parent="." node_paths=PackedStringArray("spawn_center") instance=ExtResource("6_272bh")]
+spawn_center = NodePath("../Bowl/BowlSpawnPoint")
