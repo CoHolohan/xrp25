@@ -15,6 +15,6 @@ transform = Transform3D(1, 0, 0, 0, -0.015707368, -0.9998766, 0, 0.9998766, -0.0
 shape = SubResource("SphereShape3D_itsgg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, -0.04892063, -5.0601807, -0.082722664)
+transform = Transform3D(0.09, 0, 0, 0, 0.020092493, 0.087728515, 0, -0.087728515, 0.020092493, -0.04892063, -5.0601807, -0.082722664)
 mesh = ExtResource("2_itsgg")
 skeleton = NodePath("../CollisionShape3D")

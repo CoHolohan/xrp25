@@ -3,7 +3,7 @@ extends Node3D
 @export var vegetable_scenes: Array[PackedScene]   # multiple veg scenes here
 @export var spawn_center: Node3D                   # BowlSpawnPoint
 @export var spawn_every: float = 2.0
-@export var vertical_offset: float = 3.0
+@export var vertical_offset: float = 8.0
 @export var spawn_radius: float = 0.0
 @export var launch_speed: float = 0.1
 
