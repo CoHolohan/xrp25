@@ -16,3 +16,7 @@ shape = SubResource("SphereShape3D_0jwq2")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_itsgg")
 skeleton = NodePath("../CollisionShape3D")
+
+[node name="SliceParticles" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 10

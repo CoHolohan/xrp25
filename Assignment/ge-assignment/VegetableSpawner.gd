@@ -1,11 +1,10 @@
-# VegetableSpawner.gd
 extends Node3D
 
 @export var vegetable_scene: PackedScene
 @export var spawn_every: float = 1.0
-@export var spawn_height: float = 2.0
-@export var spawn_radius: float = 1.5
-@export var launch_speed: float = 6.0
+@export var spawn_height: float = 8.0
+@export var spawn_radius: float = 1.0
+@export var launch_speed: float = 1.0
 
 var _time_accum: float = 0.0
 
@@ -25,17 +24,19 @@ func _spawn_vegetable() -> void:
 		push_warning("VegetableSpawner: vegetable_scene is invalid")
 		return
 
-	# Random position around the spawner, above it
+	# Add it to the scene tree *first*
+	get_tree().current_scene.add_child(veg)
+
+	# Random offset around the spawner
 	var rand_x = randf_range(-spawn_radius, spawn_radius)
 	var rand_z = randf_range(-spawn_radius, spawn_radius)
 
-	var spawn_pos = global_transform.origin + Vector3(rand_x, spawn_height, rand_z)
-	veg.global_transform.origin = spawn_pos
+	# Use our own global_position (we ARE in the tree),
+	# but set the vegetable's *position* (local) after parenting.
+	var spawn_pos = global_position + Vector3(rand_x, spawn_height, rand_z)
+	veg.position = spawn_pos  # no global_transform on veg, so no warning
 
-	# Add veggie to the same scene as the spawner
-	get_tree().current_scene.add_child(veg)
-
-	# Launch upwards a bit (Godot 4 style)
+	# Give it some upward / random velocity if it's a RigidBody3D
 	if veg is RigidBody3D:
 		var dir = Vector3(
 			randf_range(-0.5, 0.5),
