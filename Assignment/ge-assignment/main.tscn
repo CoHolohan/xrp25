@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c5w3sj0og1cbx"]
+[gd_scene load_steps=18 format=3 uid="uid://c5w3sj0og1cbx"]
 
 [ext_resource type="Script" uid="uid://twv6wnxt7i24" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cgwj4s2rd2qnm" path="res://floor.gd" id="2_272bh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c8bmqx42w10db" path="res://bowl.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://d0utksyb6dvbq" path="res://Vegetable.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dv3byc14pcsiy" path="res://VegetableSpawner.tscn" id="6_272bh"]
+[ext_resource type="Script" uid="uid://dnw8wh0axm4pj" path="res://score_label.gd" id="6_dg77c"]
 [ext_resource type="PackedScene" uid="uid://c3qx3reqdca64" path="res://vegetable_broccoli.tscn" id="8_4c57u"]
 [ext_resource type="PackedScene" uid="uid://bc6ggxqa4l2bt" path="res://vegetable_potato.tscn" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://3lw6nsr57x70" path="res://Vegetable_carrot.tscn" id="10_dg77c"]
@@ -62,15 +63,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8954804, 0, -3.2707517)
 [node name="BowlSpawnPoint" type="Marker3D" parent="Bowl"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0061455, 0.6207113, 1.0297562)
 
+[node name="ScoreLabel2" type="Label3D" parent="Bowl"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0843523, 1.6136819, 2.7419388)
+text = "0"
+font_size = 100
+script = ExtResource("6_dg77c")
+
 [node name="vegetable_broccoli" parent="." instance=ExtResource("8_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.097301)
 
 [node name="Vegetable_carrot" parent="." instance=ExtResource("10_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24.914707)
 
-[node name="vegSpawner" parent="." node_paths=PackedStringArray("spawn_center") instance=ExtResource("6_272bh")]
+[node name="vegSpawner" parent="." node_paths=PackedStringArray("spawn_center", "score_display") instance=ExtResource("6_272bh")]
 vegetable_scenes = Array[PackedScene]([ExtResource("9_efxa6"), ExtResource("8_4c57u"), ExtResource("10_dg77c"), ExtResource("5_7mycd")])
 spawn_center = NodePath("../Bowl/BowlSpawnPoint")
+score_display = NodePath("../Bowl/ScoreLabel2")
 
 [node name="Vegetable_tomato" parent="." instance=ExtResource("5_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4449611, 16.988213)

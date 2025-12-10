@@ -2,6 +2,7 @@ extends Node3D
 
 @export var vegetable_scenes: Array[PackedScene]   # multiple veg scenes here
 @export var spawn_center: Node3D                   # BowlSpawnPoint
+@export var score_display: Node3D 
 @export var spawn_every: float = 2.0
 @export var vertical_offset: float = 8.0
 @export var spawn_radius: float = 0.0
@@ -50,3 +51,8 @@ func _spawn_vegetable() -> void:
 		veg.linear_velocity = Vector3(0, -1, 0) * launch_speed
 
 	print("Spawned veg type ", index, " at: ", spawn_pos)
+	
+
+	# Connect sliced signal to score display
+	if score_display and veg is Vegetable:
+		veg.sliced.connect(score_display._on_vegetable_sliced)
