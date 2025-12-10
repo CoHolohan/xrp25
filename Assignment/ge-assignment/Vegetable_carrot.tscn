@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://3lw6nsr57x70"]
+
+[ext_resource type="ArrayMesh" uid="uid://csy7k8kjyuoey" path="res://Models/carrot.obj" id="1_6575v"]
+[ext_resource type="Script" uid="uid://n5b8bhrslu3i" path="res://vegetable.gd" id="1_i0qhj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6575v"]
+radius = 0.35546875
+height = 2.7443237
+
+[node name="Vegetable_carrot" type="RigidBody3D"]
+script = ExtResource("1_i0qhj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.015707368, -0.9998766, 0, 0.9998766, -0.015707368, -0.07491493, 0.7414743, 0.8026719)
+shape = SubResource("CapsuleShape3D_6575v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, -0.55980647)
+mesh = ExtResource("1_6575v")

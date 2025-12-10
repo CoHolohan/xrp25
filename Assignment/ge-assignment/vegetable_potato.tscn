@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc6ggxqa4l2bt"]
+
+[ext_resource type="ArrayMesh" uid="uid://btx5oce8hwynu" path="res://Models/potato.obj" id="1_af0tb"]
+[ext_resource type="Script" uid="uid://n5b8bhrslu3i" path="res://vegetable.gd" id="1_ed24t"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_af0tb"]
+height = 1.9611816
+
+[node name="Vegetable_potato" type="RigidBody3D"]
+script = ExtResource("1_ed24t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.020012856, -0.38687444, -0.00012207031)
+shape = SubResource("CapsuleShape3D_af0tb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+mesh = ExtResource("1_af0tb")

@@ -1,19 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0utksyb6dvbq"]
 
 [ext_resource type="Script" uid="uid://n5b8bhrslu3i" path="res://vegetable.gd" id="1_0jwq2"]
+[ext_resource type="ArrayMesh" uid="uid://cbrwffg0rjmg" path="res://Models/tomato.obj" id="2_itsgg"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_0jwq2"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_itsgg"]
+radius = 0.6667674
 
-[sub_resource type="SphereMesh" id="SphereMesh_itsgg"]
-
-[node name="Vegetable_potato" type="RigidBody3D"]
+[node name="Vegetable_tomato" type="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 script = ExtResource("1_0jwq2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_0jwq2")
+transform = Transform3D(1, 0, 0, 0, -0.015707368, -0.9998766, 0, 0.9998766, -0.015707368, -0.07491493, -5.0770907, 0.3559972)
+shape = SubResource("SphereShape3D_itsgg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
-mesh = SubResource("SphereMesh_itsgg")
+transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, -0.04892063, -5.0601807, -0.082722664)
+mesh = ExtResource("2_itsgg")
 skeleton = NodePath("../CollisionShape3D")

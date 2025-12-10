@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3qx3reqdca64"]
+
+[ext_resource type="ArrayMesh" uid="uid://bltm2hj34f6d8" path="res://Models/broccoli.obj" id="1_25tm0"]
+[ext_resource type="Script" uid="uid://n5b8bhrslu3i" path="res://vegetable.gd" id="1_ybvie"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ybvie"]
+
+[node name="vegetable_broccoli" type="RigidBody3D"]
+script = ExtResource("1_ybvie")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_ybvie")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, 0, 0)
+mesh = ExtResource("1_25tm0")
