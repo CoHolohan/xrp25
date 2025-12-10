@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c5w3sj0og1cbx"]
+[gd_scene load_steps=17 format=3 uid="uid://c5w3sj0og1cbx"]
 
 [ext_resource type="Script" uid="uid://twv6wnxt7i24" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cgwj4s2rd2qnm" path="res://floor.gd" id="2_272bh"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c3qx3reqdca64" path="res://vegetable_broccoli.tscn" id="8_4c57u"]
 [ext_resource type="PackedScene" uid="uid://bc6ggxqa4l2bt" path="res://vegetable_potato.tscn" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://3lw6nsr57x70" path="res://Vegetable_carrot.tscn" id="10_dg77c"]
+[ext_resource type="PackedScene" uid="uid://c6ik5pfonbvd" path="res://veg_cut_effect.tscn" id="11_efxa6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -56,21 +57,25 @@ skeleton = NodePath("../CollisionShape3D")
 [node name="StartXR" parent="." instance=ExtResource("3_h2yge")]
 
 [node name="Bowl" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8954804, 0, -3.2707517)
 
 [node name="BowlSpawnPoint" type="Marker3D" parent="Bowl"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0061455, 0.5127518, 1.0297562)
-
-[node name="Vegetable_tomato" parent="." instance=ExtResource("5_7mycd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 14.145495)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0061455, 0.6207113, 1.0297562)
 
 [node name="vegetable_broccoli" parent="." instance=ExtResource("8_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.097301)
 
-[node name="Vegetable_potato" parent="." instance=ExtResource("9_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 23.86471)
-
 [node name="Vegetable_carrot" parent="." instance=ExtResource("10_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.348195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24.914707)
 
-[node name="vegSpawner" parent="." instance=ExtResource("6_272bh")]
-vegetable_scenes = Array[PackedScene]([ExtResource("9_efxa6"), ExtResource("8_4c57u"), ExtResource("5_7mycd"), ExtResource("10_dg77c")])
+[node name="vegSpawner" parent="." node_paths=PackedStringArray("spawn_center") instance=ExtResource("6_272bh")]
+vegetable_scenes = Array[PackedScene]([ExtResource("9_efxa6"), ExtResource("8_4c57u"), ExtResource("10_dg77c"), ExtResource("5_7mycd")])
+spawn_center = NodePath("../Bowl/BowlSpawnPoint")
+
+[node name="Vegetable_tomato" parent="." instance=ExtResource("5_7mycd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4449611, 16.988213)
+
+[node name="Vegetable_potato" parent="." instance=ExtResource("9_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7947645, 2.8584843, 11.814074)
+
+[node name="VegCutEffect" parent="." instance=ExtResource("11_efxa6")]

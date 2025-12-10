@@ -1,26 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8bmqx42w10db"]
+[gd_scene load_steps=4 format=3 uid="uid://c8bmqx42w10db"]
 
 [ext_resource type="Script" uid="uid://1cgktmd10wbq" path="res://bowl.gd" id="1_l4bwr"]
-[ext_resource type="Material" path="res://addons/godot-xr-tools/materials/pointer.tres" id="2_y8sj4"]
+[ext_resource type="ArrayMesh" uid="uid://baf6hx66l0g31" path="res://Models/bowl.obj" id="2_y8sj4"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_l4bwr"]
-height = 0.48882294
-radius = 1.0273438
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_l4bwr"]
-material = ExtResource("2_y8sj4")
-top_radius = 1.0
-bottom_radius = 1.0
-height = 0.5
+height = 0.7439232
+radius = 1.1474609
 
 [node name="Bowl" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 script = ExtResource("1_l4bwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9983101, 0.274742, 0.98718655)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9983101, 0.40229213, 0.98718655)
 shape = SubResource("CylinderShape3D_l4bwr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.25, 1)
-mesh = SubResource("CylinderMesh_l4bwr")
+transform = Transform3D(0.006, 0, 0, 0, 0.006, 0, 0, 0, 0.006, 1, -0.099134564, 1)
+mesh = ExtResource("2_y8sj4")

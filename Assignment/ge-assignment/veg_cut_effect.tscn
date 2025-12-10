@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6ik5pfonbvd"]
+
+[ext_resource type="Script" uid="uid://1s1cyo38tvwt" path="res://veg_cut_effect.gd" id="1_0fhhi"]
+
+[sub_resource type="Curve" id="Curve_q5s6d"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ea657"]
+curve = SubResource("Curve_q5s6d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yfmpn"]
+spread = 127.222
+initial_velocity_min = 8.0
+initial_velocity_max = 8.0
+scale_min = 0.099999994
+scale_max = 0.14999999
+scale_curve = SubResource("CurveTexture_ea657")
+
+[sub_resource type="SphereMesh" id="SphereMesh_0fhhi"]
+
+[node name="VegCutEffect" type="GPUParticles3D"]
+emitting = false
+amount = 50
+lifetime = 1.76
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_yfmpn")
+draw_pass_1 = SubResource("SphereMesh_0fhhi")
+script = ExtResource("1_0fhhi")
