@@ -3,12 +3,14 @@ class_name Vegetable
 
 @export var points: int = 1
 @export var cut_effect_scene: PackedScene
+@export var gravity_scale_falling: float = 0.5
 
 
 var is_sliced: bool = false
 signal sliced(veg: Vegetable)
 
 func _ready() -> void:
+	gravity_scale = gravity_scale_falling
 	print("Vegetable READY: ", name, " script: ", get_script())
 
 func slice(_cut_direction: Vector3 = Vector3.ZERO) -> void:
