@@ -33,7 +33,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
-size = Vector3(9.876465, 0.1, 9.866699)
+size = Vector3(10.005127, 0.1, 9.866699)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w48qg"]
 albedo_texture = ExtResource("3_ycdy4")
@@ -62,7 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 script = ExtResource("2_272bh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013916016, 0, 0.0056152344)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07824707, 0, 0.0056152344)
 shape = SubResource("BoxShape3D_1bvp3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
