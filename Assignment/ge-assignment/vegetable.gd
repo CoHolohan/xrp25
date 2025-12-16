@@ -2,7 +2,8 @@ extends RigidBody3D
 class_name Vegetable
 
 @export var points: int = 1
-@export var cut_effect_scene: PackedScene   # assign VegCutEffect.tscn in inspector
+@export var cut_effect_scene: PackedScene
+
 
 var is_sliced: bool = false
 signal sliced(veg: Vegetable)

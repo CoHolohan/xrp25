@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6ik5pfonbvd"]
+[gd_scene load_steps=8 format=3 uid="uid://c6ik5pfonbvd"]
 
 [ext_resource type="Script" uid="uid://1s1cyo38tvwt" path="res://veg_cut_effect.gd" id="1_0fhhi"]
+[ext_resource type="Texture2D" uid="uid://bwnryojkdpvo5" path="res://Models/Potato.jpg" id="1_q5s6d"]
 
 [sub_resource type="Curve" id="Curve_q5s6d"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -16,9 +17,15 @@ initial_velocity_max = 8.0
 scale_min = 0.099999994
 scale_max = 0.14999999
 scale_curve = SubResource("CurveTexture_ea657")
+color = Color(0.9999997, 0.40721077, 0.22837609, 1)
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ea657"]
+albedo_texture = ExtResource("1_q5s6d")
 
 [sub_resource type="SphereMesh" id="SphereMesh_0fhhi"]
-is_hemisphere = true
+material = SubResource("StandardMaterial3D_ea657")
 
 [node name="VegCutEffect" type="GPUParticles3D"]
 emitting = false
