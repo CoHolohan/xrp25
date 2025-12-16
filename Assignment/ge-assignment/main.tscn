@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c5w3sj0og1cbx"]
+[gd_scene load_steps=27 format=3 uid="uid://c5w3sj0og1cbx"]
 
 [ext_resource type="Script" uid="uid://twv6wnxt7i24" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cgwj4s2rd2qnm" path="res://floor.gd" id="2_272bh"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dv3byc14pcsiy" path="res://VegetableSpawner.tscn" id="6_272bh"]
 [ext_resource type="Script" uid="uid://dnw8wh0axm4pj" path="res://score_label.gd" id="6_dg77c"]
 [ext_resource type="PackedScene" uid="uid://c3qx3reqdca64" path="res://vegetable_broccoli.tscn" id="8_4c57u"]
+[ext_resource type="AudioStream" uid="uid://ciwi1e4qvirxq" path="res://Models/mixkit-uplifting-bells-notification-938.wav" id="8_yaehf"]
 [ext_resource type="PackedScene" uid="uid://bc6ggxqa4l2bt" path="res://vegetable_potato.tscn" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://3lw6nsr57x70" path="res://Vegetable_carrot.tscn" id="10_dg77c"]
 [ext_resource type="PackedScene" uid="uid://c6ik5pfonbvd" path="res://veg_cut_effect.tscn" id="11_efxa6"]
@@ -83,6 +84,11 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.0843523, 1.6136819, -0.8151
 text = "0"
 font_size = 100
 script = ExtResource("6_dg77c")
+
+[node name="ScoreSound" type="AudioStreamPlayer3D" parent="Bowl/ScoreLabel2"]
+stream = ExtResource("8_yaehf")
+volume_db = 6.0
+unit_size = 1.0
 
 [node name="vegetable_broccoli" parent="." instance=ExtResource("8_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.097301)
