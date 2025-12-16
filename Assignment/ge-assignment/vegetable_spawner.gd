@@ -5,7 +5,7 @@ extends Node3D
 @export var score_display: Node3D 
 @export var spawn_every: float = 2.0
 @export var vertical_offset: float = 8.0
-@export var spawn_radius: float = 0.0
+@export var spawn_radius: float = 0.6
 @export var launch_speed: float = 0.1
 
 var _time_accum: float = 0.0
@@ -48,7 +48,7 @@ func _spawn_vegetable() -> void:
 	veg.global_position = spawn_pos
 
 	if veg is RigidBody3D:
-		veg.linear_velocity = Vector3(0, -1, 0) * launch_speed
+		veg.linear_velocity = Vector3(0, -0.5, 0) * launch_speed
 
 	print("Spawned veg type ", index, " at: ", spawn_pos)
 	

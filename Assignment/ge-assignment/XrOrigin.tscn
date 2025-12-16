@@ -1,11 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm5ix1cahm6ks"]
+[gd_scene load_steps=17 format=3 uid="uid://dm5ix1cahm6ks"]
 
 [ext_resource type="Script" uid="uid://xfyd4t5l237r" path="res://blade_l.gd" id="1_hpbhu"]
 [ext_resource type="Script" uid="uid://bgfim8170pg38" path="res://blade_r.gd" id="3_becju"]
 [ext_resource type="ArrayMesh" uid="uid://b2escypqmbdsx" path="res://Models/katana.obj" id="3_hpbhu"]
+[ext_resource type="Texture2D" uid="uid://cmi672krme646" path="res://Models/Bowl_textureColor.jpg" id="3_wnvwv"]
+[ext_resource type="Texture2D" uid="uid://evp6cs20mp2j" path="res://Models/handgrip_color.jpg" id="4_lbgwj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qs5j"]
+albedo_texture = ExtResource("3_wnvwv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ussdx"]
+albedo_texture = ExtResource("3_wnvwv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jdbtr"]
+albedo_texture = ExtResource("3_wnvwv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cqln"]
+albedo_texture = ExtResource("4_lbgwj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pry5l"]
+albedo_texture = ExtResource("4_lbgwj")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dme2t"]
 size = Vector3(0.045654297, 1.1905518, 0.0724411)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kb45o"]
+albedo_texture = ExtResource("3_wnvwv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kth1l"]
+albedo_texture = ExtResource("3_wnvwv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfm1q"]
+albedo_texture = ExtResource("3_wnvwv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkcqs"]
+albedo_texture = ExtResource("4_lbgwj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwp8t"]
+albedo_texture = ExtResource("4_lbgwj")
 
 [node name="XROrigin3D" type="XROrigin3D"]
 
@@ -21,6 +53,11 @@ script = ExtResource("1_hpbhu")
 transform = Transform3D(-2.6226832e-10, 0.006, 0, 2.6226832e-10, 1.1464113e-17, -0.006, -0.006, -2.6226832e-10, -2.6226832e-10, 0, 0, 0)
 mesh = ExtResource("3_hpbhu")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_8qs5j")
+surface_material_override/1 = SubResource("StandardMaterial3D_ussdx")
+surface_material_override/2 = SubResource("StandardMaterial3D_jdbtr")
+surface_material_override/3 = SubResource("StandardMaterial3D_3cqln")
+surface_material_override/4 = SubResource("StandardMaterial3D_pry5l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LeftHand/BladeL"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07891905, 0.6612108, 0.00983426)
@@ -36,6 +73,11 @@ script = ExtResource("3_becju")
 transform = Transform3D(-2.6226832e-10, 0.006, 0, 2.6226832e-10, 1.1464113e-17, -0.006, -0.006, -2.6226832e-10, -2.6226832e-10, 0, 0, 0)
 mesh = ExtResource("3_hpbhu")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kb45o")
+surface_material_override/1 = SubResource("StandardMaterial3D_kth1l")
+surface_material_override/2 = SubResource("StandardMaterial3D_sfm1q")
+surface_material_override/3 = SubResource("StandardMaterial3D_vkcqs")
+surface_material_override/4 = SubResource("StandardMaterial3D_mwp8t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RightHand/BladeR"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07891905, 0.6612108, 0.00983426)

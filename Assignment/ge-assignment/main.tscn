@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://c5w3sj0og1cbx"]
+[gd_scene load_steps=26 format=3 uid="uid://c5w3sj0og1cbx"]
 
 [ext_resource type="Script" uid="uid://twv6wnxt7i24" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cgwj4s2rd2qnm" path="res://floor.gd" id="2_272bh"]
 [ext_resource type="PackedScene" uid="uid://dm5ix1cahm6ks" path="res://XrOrigin.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://dhklljrs3vdc8" path="res://Models/3aecba261bb759180def0c10a1a08b99.jpg" id="3_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://c8bmqx42w10db" path="res://bowl.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://d0utksyb6dvbq" path="res://Vegetable.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dv3byc14pcsiy" path="res://VegetableSpawner.tscn" id="6_272bh"]
@@ -12,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bc6ggxqa4l2bt" path="res://vegetable_potato.tscn" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://3lw6nsr57x70" path="res://Vegetable_carrot.tscn" id="10_dg77c"]
 [ext_resource type="PackedScene" uid="uid://c6ik5pfonbvd" path="res://veg_cut_effect.tscn" id="11_efxa6"]
+[ext_resource type="Texture2D" uid="uid://x4aqx2kj2d8h" path="res://Models/brick.png" id="14_w48qg"]
+[ext_resource type="PackedScene" uid="uid://dx4efdpavylvo" path="res://oven.tscn" id="15_vivmo"]
+[ext_resource type="PackedScene" uid="uid://cdlxksruu03oq" path="res://Kitchen.tscn" id="16_2cqfq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -29,8 +33,18 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
 size = Vector3(9.876465, 0.1, 9.866699)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w48qg"]
+albedo_texture = ExtResource("3_ycdy4")
+
 [sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
 size = Vector3(10, 0.1, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vivmo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cqfq"]
+albedo_texture = ExtResource("14_w48qg")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yaehf"]
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_0xm2m")
@@ -50,6 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013916016, 0, 0.0056152344
 shape = SubResource("BoxShape3D_1bvp3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+material_override = SubResource("StandardMaterial3D_w48qg")
 mesh = SubResource("BoxMesh_lquwl")
 skeleton = NodePath("../CollisionShape3D")
 
@@ -64,16 +79,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8954804, 0, -3.2707517)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0061455, 0.6207113, 1.0297562)
 
 [node name="ScoreLabel2" type="Label3D" parent="Bowl"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0843523, 1.6136819, 2.7419388)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.0843523, 1.6136819, -0.81518006)
 text = "0"
 font_size = 100
 script = ExtResource("6_dg77c")
 
 [node name="vegetable_broccoli" parent="." instance=ExtResource("8_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.097301)
-
-[node name="Vegetable_carrot" parent="." instance=ExtResource("10_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24.914707)
 
 [node name="vegSpawner" parent="." node_paths=PackedStringArray("spawn_center", "score_display") instance=ExtResource("6_272bh")]
 vegetable_scenes = Array[PackedScene]([ExtResource("9_efxa6"), ExtResource("8_4c57u"), ExtResource("10_dg77c"), ExtResource("5_7mycd")])
@@ -87,3 +99,52 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4449611, 16.988213)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7947645, 2.8584843, 11.814074)
 
 [node name="VegCutEffect" parent="." instance=ExtResource("11_efxa6")]
+
+[node name="Vegetable_carrot" parent="." instance=ExtResource("10_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.17405)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, 5, 0, -5, -2.1855695e-07, -0.23311281, 0, 4.6375575)
+mesh = SubResource("PlaneMesh_vivmo")
+surface_material_override/0 = SubResource("StandardMaterial3D_2cqfq")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -0.7106476, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, 5, 0, -5, -2.1855695e-07, -0.08071184, 0, 4.6375575)
+mesh = SubResource("PlaneMesh_vivmo")
+surface_material_override/0 = SubResource("StandardMaterial3D_2cqfq")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.34214115, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
+transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, 5, 0, -5, -2.1855695e-07, 0.07602167, 0, 4.6375575)
+mesh = SubResource("PlaneMesh_vivmo")
+surface_material_override/0 = SubResource("StandardMaterial3D_2cqfq")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0.117889404)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4"]
+transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, 5, 0, -5, -2.1855695e-07, -0.08071184, 0, 4.6375575)
+mesh = SubResource("PlaneMesh_vivmo")
+surface_material_override/0 = SubResource("StandardMaterial3D_2cqfq")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(5, 0, 0, 0, -5, 7.54979e-07, 0, -7.54979e-07, -5, 0.008380413, 4.731495, 0)
+mesh = SubResource("PlaneMesh_yaehf")
+
+[node name="Oven" parent="." instance=ExtResource("15_vivmo")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 3.5283911, 0, -3.6672602)
+
+[node name="Oven2" parent="." instance=ExtResource("15_vivmo")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -3.739648, 0, -3.6672602)
+
+[node name="Kitchen" parent="." instance=ExtResource("16_2cqfq")]
+transform = Transform3D(-0.0013264851, 0, 0.9999991, 0, 1, 0, -0.9999991, 0, -0.0013264851, 2.1964684, 0, 3.7257607)

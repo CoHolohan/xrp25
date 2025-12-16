@@ -18,11 +18,12 @@ scale_max = 0.14999999
 scale_curve = SubResource("CurveTexture_ea657")
 
 [sub_resource type="SphereMesh" id="SphereMesh_0fhhi"]
+is_hemisphere = true
 
 [node name="VegCutEffect" type="GPUParticles3D"]
 emitting = false
-amount = 50
-lifetime = 1.76
+amount = 100
+lifetime = 2.21
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_yfmpn")

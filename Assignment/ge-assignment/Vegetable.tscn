@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0utksyb6dvbq"]
+[gd_scene load_steps=7 format=3 uid="uid://d0utksyb6dvbq"]
 
 [ext_resource type="Script" uid="uid://n5b8bhrslu3i" path="res://vegetable.gd" id="1_0jwq2"]
 [ext_resource type="PackedScene" uid="uid://c6ik5pfonbvd" path="res://veg_cut_effect.tscn" id="2_isox1"]
 [ext_resource type="ArrayMesh" uid="uid://cbrwffg0rjmg" path="res://Models/tomato.obj" id="2_itsgg"]
+[ext_resource type="Texture2D" uid="uid://2b27u7krcgjy" path="res://Models/TomatoBeef.jpg" id="4_ngm2p"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_itsgg"]
-radius = 0.5302652
+radius = 0.42870986
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isf2k"]
+albedo_texture = ExtResource("4_ngm2p")
 
 [node name="Vegetable_tomato" type="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.6552324, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1463213, 0)
 script = ExtResource("1_0jwq2")
 cut_effect_scene = ExtResource("2_isox1")
 
@@ -17,5 +21,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.37317234)
 shape = SubResource("SphereShape3D_itsgg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0, 0)
 mesh = ExtResource("2_itsgg")
+surface_material_override/0 = SubResource("StandardMaterial3D_isf2k")

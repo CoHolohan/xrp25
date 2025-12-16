@@ -1,19 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3qx3reqdca64"]
+[gd_scene load_steps=7 format=3 uid="uid://c3qx3reqdca64"]
 
 [ext_resource type="ArrayMesh" uid="uid://bltm2hj34f6d8" path="res://Models/broccoli.obj" id="1_25tm0"]
 [ext_resource type="Script" uid="uid://n5b8bhrslu3i" path="res://vegetable.gd" id="1_ybvie"]
 [ext_resource type="PackedScene" uid="uid://c6ik5pfonbvd" path="res://veg_cut_effect.tscn" id="2_pvbm8"]
+[ext_resource type="Texture2D" uid="uid://b0r4pxjuof445" path="res://Models/broccoliC.jpg" id="4_a11n5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ybvie"]
+radius = 0.45263672
+height = 1.1916504
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7xhv"]
+albedo_texture = ExtResource("4_a11n5")
 
 [node name="vegetable_broccoli" type="RigidBody3D"]
 script = ExtResource("1_ybvie")
 cut_effect_scene = ExtResource("2_pvbm8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 4.1086157e-10, -0.009399414)
 shape = SubResource("CapsuleShape3D_ybvie")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, 0, 0)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 mesh = ExtResource("1_25tm0")
+surface_material_override/0 = SubResource("StandardMaterial3D_q7xhv")
