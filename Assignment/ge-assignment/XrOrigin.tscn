@@ -42,6 +42,10 @@ albedo_texture = ExtResource("4_lbgwj")
 [node name="XROrigin3D" type="XROrigin3D"]
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
+current = true
+
+[node name="AudioListener3D" type="AudioListener3D" parent="XRCamera3D"]
+current = true
 
 [node name="LeftHand" type="XRController3D" parent="."]
 tracker = &"left_hand"

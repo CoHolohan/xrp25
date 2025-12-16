@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c5w3sj0og1cbx"]
+[gd_scene load_steps=28 format=3 uid="uid://c5w3sj0og1cbx"]
 
 [ext_resource type="Script" uid="uid://twv6wnxt7i24" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cgwj4s2rd2qnm" path="res://floor.gd" id="2_272bh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://dhklljrs3vdc8" path="res://Models/3aecba261bb759180def0c10a1a08b99.jpg" id="3_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://c8bmqx42w10db" path="res://bowl.tscn" id="4_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://yc3ovrg03jna" path="res://Models/mixkit-wood-hard-hit-2182.wav" id="4_074og"]
 [ext_resource type="PackedScene" uid="uid://d0utksyb6dvbq" path="res://Vegetable.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dv3byc14pcsiy" path="res://VegetableSpawner.tscn" id="6_272bh"]
 [ext_resource type="Script" uid="uid://dnw8wh0axm4pj" path="res://score_label.gd" id="6_dg77c"]
@@ -69,6 +70,11 @@ material_override = SubResource("StandardMaterial3D_w48qg")
 mesh = SubResource("BoxMesh_lquwl")
 skeleton = NodePath("../CollisionShape3D")
 
+[node name="MissSound" type="AudioStreamPlayer3D" parent="Floor"]
+stream = ExtResource("4_074og")
+volume_db = 6.0
+unit_size = 2.0
+
 [node name="XROrigin3D" parent="." instance=ExtResource("2_h2yge")]
 
 [node name="StartXR" parent="." instance=ExtResource("3_h2yge")]
@@ -88,7 +94,7 @@ script = ExtResource("6_dg77c")
 [node name="ScoreSound" type="AudioStreamPlayer3D" parent="Bowl/ScoreLabel2"]
 stream = ExtResource("8_yaehf")
 volume_db = 6.0
-unit_size = 1.0
+unit_size = 1.5
 
 [node name="vegetable_broccoli" parent="." instance=ExtResource("8_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.097301)
