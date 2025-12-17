@@ -5,7 +5,7 @@ extends Node3D
 @export var score_display: Node3D 
 @export var spawn_every: float = 2.0
 @export var vertical_offset: float = 8.0
-@export var spawn_radius: float = 0.75
+@export var spawn_radius: float = 0.5
 @export var launch_speed: float = 0.05
 
 var _time_accum: float = 0.0

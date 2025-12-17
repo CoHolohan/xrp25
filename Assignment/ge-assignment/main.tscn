@@ -93,6 +93,7 @@ font_size = 100
 script = ExtResource("6_dg77c")
 
 [node name="ScoreSound" type="AudioStreamPlayer3D" parent="Bowl/ScoreLabel2"]
+visible = false
 stream = ExtResource("8_yaehf")
 volume_db = 6.0
 unit_size = 1.5
@@ -106,10 +107,10 @@ spawn_center = NodePath("../Bowl/BowlSpawnPoint")
 score_display = NodePath("../Bowl/ScoreLabel2")
 
 [node name="Vegetable_tomato" parent="." instance=ExtResource("5_7mycd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4449611, 16.988213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04281926, 16.988213)
 
 [node name="Vegetable_potato" parent="." instance=ExtResource("9_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7947645, 2.8584843, 11.814074)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45606256, 1.0519485, 14.500859)
 
 [node name="VegCutEffect" parent="." instance=ExtResource("11_efxa6")]
 
@@ -127,7 +128,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_2cqfq")
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -0.7106476, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
-transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, 5, 0, -5, -2.1855695e-07, -0.08071184, 0, 4.6375575)
+transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, 5, 0, -5, -2.1855695e-07, -0.08071184, 0, 4.102941)
 mesh = SubResource("PlaneMesh_vivmo")
 surface_material_override/0 = SubResource("StandardMaterial3D_2cqfq")
 
