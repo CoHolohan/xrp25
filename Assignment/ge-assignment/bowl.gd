@@ -17,10 +17,7 @@ func _on_body_entered(body: Node) -> void:
 		if veg.is_sliced:
 			score += veg.points
 			emit_signal("score_changed", score)
+			veg.queue_free()
 		else:
-			# Optional: penalty if unsliced veg falls in
-			# score -= 1
-			# emit_signal("score_changed", score)
+			# Not sliced: let it pass through / keep falling to floor killzone
 			pass
-
-		veg.queue_free()
