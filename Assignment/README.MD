@@ -19,7 +19,7 @@ Tu/856
 ## Video
 
 ### YouTube  
-[(Enter YouTube demo link here)](https://www.youtube.com/shorts/ZTpYOhfEOq4)
+https://www.youtube.com/shorts/ZTpYOhfEOq4
 
 ---
 
