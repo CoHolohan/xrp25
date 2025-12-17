@@ -19,7 +19,7 @@ Tu/856
 ## Video
 
 ### YouTube  
-(Enter YouTube demo link here)
+[(Enter YouTube demo link here)](https://www.youtube.com/shorts/ZTpYOhfEOq4)
 
 ---
 
@@ -31,9 +31,13 @@ The Different falling vegetables
 ![alt text](image-1.png)
 
 Score Label
+
+
 ![alt text](image-2.png)
 
 Katanas
+
+
 ![alt text](image-3.png)
 
 ---
